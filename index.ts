@@ -8,11 +8,11 @@ app.use(express.json())
 interface loginattributes{
     email:string,
     password:string,
-    age:number
+    age?:number
 }
 app.post('/login',validate(loginSchema),(req:Request,res:Response)=>{
     try{
-        const{email,password,age}:loginattributes=req.body
+        const{email,password,age}=req.body as loginattributes
         res.status(200).json('login successfull')
     }catch(err:any){
         res.status(500).json(err.message)

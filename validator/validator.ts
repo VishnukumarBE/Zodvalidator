@@ -6,7 +6,7 @@ type Attributes={
 const validate=(schemas:Attributes)=>(req:Request,res:Response,next:NextFunction):void=>{
         try{
              if(schemas.body){
-            req.body=schemas.body.parse(req.body)
+              req.body=schemas.body.parse(req.body)
          }
          next()
         }
